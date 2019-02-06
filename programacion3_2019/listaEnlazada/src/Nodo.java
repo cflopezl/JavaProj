@@ -1,3 +1,7 @@
+/**
+ * 
+ * @author chlopez
+ */
 public class Nodo{
     private Object dato;
     private Nodo sig;
