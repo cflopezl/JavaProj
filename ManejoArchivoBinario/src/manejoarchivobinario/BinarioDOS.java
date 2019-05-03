@@ -5,7 +5,9 @@
  */
 package manejoarchivobinario;
 
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 /**
@@ -28,13 +30,25 @@ public class BinarioDOS {
         }
     }
     
+    public static void leer(){
+        try{
+            FileInputStream lectura = 
+                    new FileInputStream("C:\\Temp\\upana\\arcBinario.upana");
+            DataInputStream dis = new DataInputStream(lectura);
+            int edad = dis.readInt();
+            System.out.println(""+edad);
+            dis.close();
+        }catch(Exception e){
+            System.out.println(""+e.getMessage());
+        }
+    }
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        escribir();
-        
+        //escribir();
+        leer();
     }
     
 }
