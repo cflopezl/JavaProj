@@ -17,14 +17,14 @@ import java.io.FileOutputStream;
 public class BinarioDOS {
 
     
-    public static void escribir(){
+    public static void escribir(int edad, String nombre, int nota){
         try{
             FileOutputStream escritura = 
-                    new FileOutputStream("C:\\Temp\\upana\\arcBinario.upana");
+                    new FileOutputStream("C:\\Temp\\upana\\arcBinario.upana",true);
             DataOutputStream manejador = new DataOutputStream(escritura);
-            manejador.writeInt(21);
-            manejador.writeUTF("Bryam");
-            manejador.writeInt(75);
+            manejador.writeInt(edad);
+            manejador.writeUTF(nombre);
+            manejador.writeInt(nota);
             manejador.close();
             
         }catch(Exception e){
@@ -33,25 +33,28 @@ public class BinarioDOS {
     }
     
     public static void leer(){
+        DataInputStream dis;
         try{
             FileInputStream lectura = 
                     new FileInputStream("C:\\Temp\\upana\\arcBinario.upana");
-            DataInputStream dis = new DataInputStream(lectura);
-            int edad = dis.readInt();
-            System.out.println(""+edad);
-            System.out.println(""+dis.readUTF());
-            System.out.println(""+dis.readInt());
-            dis.close();
+            dis = new DataInputStream(lectura);
+            while(true){
+                int edad = dis.readInt();
+                System.out.println(""+edad);
+                System.out.println(""+dis.readUTF());
+                System.out.println(""+dis.readInt());
+            }
         }catch(Exception e){
             System.out.println(""+e.getMessage());
         }
+        dis.close();
     }
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        //escribir();
+        //escribir(23,"Carlos",80);
         leer();
     }
     
