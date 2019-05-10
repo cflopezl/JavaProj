@@ -32,8 +32,8 @@ public class BinarioDOS {
         }
     }
     
-    public static void leer(){
-        DataInputStream dis;
+    public static void leer() throws Exception{
+        DataInputStream dis=null;
         try{
             FileInputStream lectura = 
                     new FileInputStream("C:\\Temp\\upana\\arcBinario.upana");
