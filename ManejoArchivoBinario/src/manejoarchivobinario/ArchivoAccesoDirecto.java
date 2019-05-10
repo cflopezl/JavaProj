@@ -28,15 +28,22 @@ public class ArchivoAccesoDirecto {
         archivo.writeInt(valor);
     }
     
+    public static int leerUnEntero(int noRegistro)throws IOException{
+        archivo.seek((noRegistro-1)*4);
+        return archivo.readInt();
+    }
+    
     public static void main(String[] args) {
         try{
             abrirArchivo();
-            Scanner scn = new Scanner(System.in);
+            /*Scanner scn = new Scanner(System.in);
             System.out.println("Ingrese un numero");
             int dato = scn.nextInt();
             escribirEntero(dato);
             //System.out.println("ubicacion actual del PUNTERO al abrir el archivo: " + archivo.getFilePointer());
-        }catch(Exception e){
+        */
+            System.out.println(""+leerUnEntero(3));
+}catch(Exception e){
             System.out.println("Error: "+e.getMessage());
         }
         
