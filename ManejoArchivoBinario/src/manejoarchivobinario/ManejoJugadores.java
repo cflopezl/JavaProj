@@ -83,8 +83,13 @@ public class ManejoJugadores {
     
     public static void main(String[] args) {
         try{
-            //escribirJugador("otro", "Otro Lopez", 100, 124000);
-            leerJugador();
+            System.out.println("Ingrese opción (1=escribir, 2=leer)");
+            Scanner s = new Scanner(System.in);
+            int opcion = s.nextInt();
+            if(opcion==1)
+                escribirJugador("otro", "Otro Lopez", 100, 124000);
+            else
+                leerJugador();
         }catch(Exception e){
             System.out.println("Error: "+e.getMessage());
         }
