@@ -27,6 +27,18 @@ public class Servidor {
         cs = ss.accept();
         System.out.println("(SERVIDOR) El cliente se conecto exitosamente");
         
+        //se envia un mensaje al cliente
+        salidaCliente = new 
+        DataOutputStream(cs.getOutputStream());
+        salidaCliente.writeUTF("Bienvenido te has conectado exitosamente\n");
+        
+        BufferedReader entrada = 
+                new BufferedReader(
+                        new InputStreamReader(cs.getInputStream()));
+        while((mensajeServidor=entrada.readLine()) != null){
+            System.out.println("(SERVIDOR) mensaje recibido:"+
+                    mensajeServidor);
+        }
         System.out.println("(SERVIDOR) La app finalizo");
         ss.close();
     }
