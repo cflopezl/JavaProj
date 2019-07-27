@@ -13,11 +13,15 @@ public class CuentaAhorro {
     private String noCuenta;
     private String nombreCuenta;
     private double saldo;
+    private Cliente arrCliente[]; 
+
+  
     
     CuentaAhorro(){
         noCuenta="-";
         nombreCuenta="*";
         saldo=0;
+        arrCliente = new Cliente[5];
     }
 
     public String getNoCuenta() {
@@ -46,12 +50,25 @@ public class CuentaAhorro {
 
     @Override
     public String toString() {
-        return "CuentaAhorro{" + "noCuenta=" + this.noCuenta + ", nombreCuenta=" + nombreCuenta + ", saldo=" + saldo + '}';
+        String respuesta = "CuentaAhorro{" + "noCuenta=" + this.noCuenta + ", nombreCuenta=" + nombreCuenta + ", saldo=" + saldo + "}\n";
+        for (int i = 0; i < arrCliente.length; i++) {
+            if(arrCliente[i]!=null)
+                respuesta += arrCliente[i].toString()+"\n";
+        }
+        return respuesta;
     }
     
     public void copiar(CuentaAhorro ca){
         this.noCuenta=ca.noCuenta;
         this.nombreCuenta=ca.nombreCuenta;
         this.saldo=ca.saldo;
+    }
+    
+    public Cliente[] getArrCliente() {
+        return arrCliente;
+    }
+
+    public void setArrCliente(Cliente[] arrCliente) {
+        this.arrCliente = arrCliente;
     }
 }

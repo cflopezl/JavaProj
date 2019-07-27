@@ -13,7 +13,7 @@ import java.util.Set;
  */
 public class TestBanco {
     public static void main(String[] args) {
-        CuentaAhorro ctaOrdonez = new CuentaAhorro();
+        /*CuentaAhorro ctaOrdonez = new CuentaAhorro();
         CuentaAhorro ctaMA = new CuentaAhorro();
         
         ctaOrdonez.setNoCuenta("123456789");
@@ -32,6 +32,16 @@ public class TestBanco {
         ctaOrdonez.setNombreCuenta("Ordoñez");
         System.out.println(ctaOrdonez);
         
-        ctaOrdonez.setNoCuenta(ctaMA.getNoCuenta());
+        ctaOrdonez.setNoCuenta(ctaMA.getNoCuenta());*/
+        //1. Crear objeto cuenta
+        CuentaAhorro ctaMancomunada  = new CuentaAhorro();
+        //2. Crear arreglo de clientes
+        Cliente clientes[]= new Cliente[5];
+        Cliente c1 = new Cliente("123456","Marco Antonio");
+        clientes[0]=c1;
+        clientes[1]= new Cliente("459855","Ordoñez");
+        //3. Asociar el arreglo de clientes al objeto cuenta
+        ctaMancomunada.setArrCliente(clientes);
+        System.out.println(ctaMancomunada.toString());
     }
 }
