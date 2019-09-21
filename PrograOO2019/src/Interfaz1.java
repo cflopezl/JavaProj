@@ -10,6 +10,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -27,13 +28,15 @@ public class Interfaz1 extends JFrame
     
     private JButton    botonIn1, botonIn2;
     
-    private JPanel panelInferior, panelIzq, panelDer;
+    private JPanel panelInferior, panelIzq, panelDer, panelCentro;
     
     private JLabel etiquetaSu;
     
     private JButton botonIz1, botonIz2, botonIz3;
     
     private JCheckBox checkBox1,checkBox2;
+    
+    private JTextField txtUsuario, txtPassword;
 
     public Interfaz1() throws HeadlessException {
         this.setVisible(true);
@@ -53,16 +56,25 @@ public class Interfaz1 extends JFrame
         btnOeste = new JButton("Oeste");
         btnCentral = new JButton("Central");
         
+        panelCentro =  new JPanel();
+        panelCentro.setLayout(null);
+        txtUsuario = new JTextField();
+        txtPassword = new JTextField();
+        panelCentro.add(txtUsuario);
+        panelCentro.add(txtPassword);
+        
         
         configurarPanelInferior();
         configurarPanelIzquierdo();
         configurarPanelDerecho();
         
+        
+        
         this.add(panelInferior, BorderLayout.SOUTH);
         this.add(etiquetaSu, BorderLayout.NORTH);
         this.add(panelDer, BorderLayout.EAST);
         this.add(panelIzq, BorderLayout.WEST);
-        this.add(btnCentral, BorderLayout.CENTER);
+        this.add(panelCentro, BorderLayout.CENTER);
         this.pack();
     }
     
