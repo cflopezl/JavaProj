@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author C-Lo 12
  */
 public class Servlet1 extends HttpServlet {
+    int counter=0;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,6 +33,7 @@ public class Servlet1 extends HttpServlet {
         String nombre=request.getParameter("alumno");
         String edad=request.getParameter("edad");
         response.setContentType("text/html;csetContentTypeharset=UTF-8");
+        counter++;
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -42,6 +44,7 @@ public class Servlet1 extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Ejemplo 1 UPANA, bienvenida " + nombre + "</h1>");
             out.println("<h2>"+edad+"</h2>");
+            out.println("<h3>"+counter+"</h3>");
             out.println("</body>");
             out.println("</html>");
         }
