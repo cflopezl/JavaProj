@@ -3,10 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.upana.progra5;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintWriter;
+import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,8 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author C-Lo 12
  */
-public class Servlet1 extends HttpServlet {
-    int counter=0;
+public class ServletMultimedia extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,25 +32,32 @@ public class Servlet1 extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nombre=request.getParameter("alumno");
-        String edad=request.getParameter("edad");
-        response.setContentType("text/html;csetContentTypeharset=UTF-8");
-        counter++;
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Servlet1</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Ejemplo 1 UPANA, bienvenida " + nombre + "</h1>");
-            out.println("<h2>"+edad+"</h2>");
-            out.println("<h3>"+counter+"</h3>");
-            out.println("<h3>" + request.getHeader("User-Agent") +"</h3>");
-            out.println("<h3>" + request.getHeader("Accept-Language") +"</h3>");
-            out.println("</body>");
-            out.println("</html>");
+        response.setContentType("image/jpg;charset=UTF-8");
+        OutputStream out=response.getOutputStream();
+        Frame frame = null;
+        Graphics g = null;
+        try {
+            //Step 1:  Create the frame and window.
+            frame = new Frame();
+            frame.addNotify();
+            //Step 2:  Draw the Image.
+            Image image = frame.createImage(400, 60);
+            g = image.getGraphics();
+            g.setFont(new Font("Serif", Font.ITALIC, 48));
+            g.setColor(Color.red);
+            g.drawString("Programación V!!!", 10, 50);
+            BufferedImage bImg = new BufferedImage(400, 60, BufferedImage.TYPE_INT_RGB);
+            g = bImg.getGraphics();
+            g.drawImage(image, 0, 0, null);
+            ImageIO.write(bImg, "jpg", out);
+        } finally {
+            //clean up resources
+            if (g != null) {
+                g.dispose();
+            }
+            if (frame != null) {
+                frame.removeNotify();
+            }
         }
     }
 

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.upana.progra5;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,8 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author C-Lo 12
  */
-public class Servlet1 extends HttpServlet {
-    int counter=0;
+public class ServletJson extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,25 +28,21 @@ public class Servlet1 extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nombre=request.getParameter("alumno");
-        String edad=request.getParameter("edad");
-        response.setContentType("text/html;csetContentTypeharset=UTF-8");
-        counter++;
+        response.setContentType("text/json");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Servlet1</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Ejemplo 1 UPANA, bienvenida " + nombre + "</h1>");
-            out.println("<h2>"+edad+"</h2>");
-            out.println("<h3>"+counter+"</h3>");
-            out.println("<h3>" + request.getHeader("User-Agent") +"</h3>");
-            out.println("<h3>" + request.getHeader("Accept-Language") +"</h3>");
-            out.println("</body>");
-            out.println("</html>");
+            out.println("[\n" +
+"  {\n" +
+"    \"_id\": \"5da12509fab5b9e39e929a82\",\n" +
+"    \"index\": 0,\n" +
+"    \"guid\": \"bc03b5c5-fd93-4899-a89b-c6aa87d4e33f\"\n" +
+"  },\n" +
+"  {\n" +
+"    \"_id\": \"5da12509f4c37b58baade91c\",\n" +
+"    \"index\": 1,\n" +
+"    \"guid\": \"70eb0c36-92ba-4903-9dd0-d19aa6722b17\"\n" +
+"  }\n" +
+"]");
         }
     }
 

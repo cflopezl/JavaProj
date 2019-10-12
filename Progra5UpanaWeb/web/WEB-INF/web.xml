@@ -4,9 +4,25 @@
         <servlet-name>Servlet1</servlet-name>
         <servlet-class>edu.upana.progra5.Servlet1</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletJson</servlet-name>
+        <servlet-class>ServletJson</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletMultimedia</servlet-name>
+        <servlet-class>ServletMultimedia</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Servlet1</servlet-name>
         <url-pattern>/servletupana</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletJson</servlet-name>
+        <url-pattern>/ServletJson</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletMultimedia</servlet-name>
+        <url-pattern>/ServletMultimedia</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
