@@ -4,9 +4,17 @@
         <servlet-name>PruebaServlet</servlet-name>
         <servlet-class>edu.umg.logic.PruebaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ShoppingServlet</servlet-name>
+        <servlet-class>edu.umg.logic.ShoppingServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PruebaServlet</servlet-name>
         <url-pattern>/prueba</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShoppingServlet</servlet-name>
+        <url-pattern>/shopping</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
