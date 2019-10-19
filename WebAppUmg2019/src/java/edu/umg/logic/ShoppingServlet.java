@@ -9,6 +9,7 @@ import edu.umg.dao.ShopopingCart;
 import edu.umg.dao.ShoppingProducto;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -107,8 +108,11 @@ public class ShoppingServlet extends HttpServlet {
         String opcion = request.getParameter("opcion");
         if(opcion.equals("add"))
             addProducto(request,response);
-        else
-            showCarretilla(request, response);
+        else{
+            //showCarretilla(request, response);
+            RequestDispatcher rd=request.getRequestDispatcher("ShowCart.jsp");
+            rd.forward(request,response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
