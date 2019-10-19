@@ -28,7 +28,7 @@ public class AccessHelp {
         List<Customer> listCustomer = null;
         try {
             org.hibernate.Transaction tx = session.beginTransaction();
-            Query q = session.createQuery("from Customer order by name");
+            Query q = session.createQuery("from Customer order by customer_id");
             listCustomer = (List<Customer>)q.list();
             tx.commit();
         } catch (Exception e) {
@@ -38,10 +38,18 @@ public class AccessHelp {
     }
     
     public void addCliente(Customer c){
+        session = HibernateUtil.getSessionFactory().openSession();
         org.hibernate.Transaction tx = session.beginTransaction();
         session.save(c);
         tx.commit();
         
+    }
+    
+    public void delCliente(Customer c){
+        session = HibernateUtil.getSessionFactory().openSession();
+        org.hibernate.Transaction tx = session.beginTransaction();
+        session.delete(c);
+        tx.commit();
     }
     
 }

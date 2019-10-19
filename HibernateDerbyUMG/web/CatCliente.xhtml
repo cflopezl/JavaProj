@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            Nombre: <h:inputText id="name" value="#{vistaClienteMB.cus.name}"></h:inputText>
+            <br/>
+            Ciudad: <h:inputText value="#{vistaClienteMB.cus.city}"></h:inputText>
+            <br/>
+            Telefono: <h:inputText value="#{vistaClienteMB.cus.phone}"></h:inputText>
+            <br/>
+            <h:commandButton value="agregar" actionListener="#{vistaClienteMB.agregar()}"></h:commandButton>
+            <br/>
+            <h:dataTable value="#{vistaClienteMB.listCustomer}" var="cliente" border="1" cellspacing="0">
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                    <h:outputLabel value="#{cliente.customerId}"></h:outputLabel>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">NOMBRE</f:facet>
+                    <h:outputLabel value="#{cliente.name}"></h:outputLabel>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">CIUDAD</f:facet>
+                    <h:outputLabel value="#{cliente.city}"></h:outputLabel>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">TELEFONO</f:facet>
+                    <h:outputLabel value="#{cliente.phone}"></h:outputLabel>
+                </h:column>    
+                <h:column>
+                    <f:facet name="header">ACCION</f:facet>
+                    <h:commandLink value="Borrar" action="#{vistaClienteMB.borrar(cliente)}"></h:commandLink>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
+
