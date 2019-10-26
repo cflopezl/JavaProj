@@ -32,6 +32,10 @@
         <servlet-name>ShoppingServlet</servlet-name>
         <servlet-class>edu.upana.controller.ShoppingServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletDB</servlet-name>
+        <servlet-class>edu.upana.controller.ServletDB</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Servlet1</servlet-name>
         <url-pattern>/servletupana</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>ShoppingServlet</servlet-name>
         <url-pattern>/shopping</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletDB</servlet-name>
+        <url-pattern>/servletdb</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
